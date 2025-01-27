@@ -4,6 +4,8 @@ class_name Bullet extends Area2D
 
 var max_range = 1000.0
 
+var damage = 10.0
+
 var _distance_traveled = 0.0
 
 func _physics_process(delta):
@@ -16,3 +18,12 @@ func _physics_process(delta):
 
 func _destroy():
 	queue_free()
+	
+func _ready() -> void:
+	body_entered.connect(func (body: Node) -> void:
+		if body is Mob:
+			body.health -= damage
+	)
+	
+func _on_body_entered(body: Node2D) -> void:
+	_destroy()

@@ -9,7 +9,7 @@
 [node name="RoomA" parent="." instance=ExtResource("1_6qrfx")]
 
 [node name="Player" parent="." instance=ExtResource("2_0l4ob")]
-position = Vector2(554, 296)
+position = Vector2(1000, 477)
 
 [node name="Sword Mob" parent="." instance=ExtResource("3_ic8wu")]
-position = Vector2(53.5992, 51.2721)
+position = Vector2(430, 357)

@@ -1,11 +1,20 @@
-extends CharacterBody2D
+class_name Mob extends CharacterBody2D
 
 @export var speed := 300.0
 @export var acceleration := 850.0
+@export var health := 500: set = set_health
 
 var _player: Player = null
 
 @onready var detection_area: Area2D = %"Detection Area"
+
+func set_health(new_health: int) -> void:
+	health = new_health
+	if health <= 0:
+		die()
+		
+func die() -> void:
+	queue_free()
 
 func _ready() -> void:
 	detection_area.body_entered.connect(func (body: Node) -> void:
