@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy4612dk5fy3p"]
+[gd_scene load_steps=6 format=3 uid="uid://cy4612dk5fy3p"]
 
 [ext_resource type="Script" path="res://lessons/sword_mob.gd" id="1_56781"]
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_g0nm8"]
@@ -9,6 +9,10 @@ radius = 430.669
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37cxm"]
 radius = 19.0047
 height = 128.018
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hku37"]
+radius = 27.9708
+height = 159.827
 
 [node name="Sword Mob" type="CharacterBody2D"]
 motion_mode = 1
@@ -26,3 +30,9 @@ texture = ExtResource("1_g0nm8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.564
 shape = SubResource("CapsuleShape2D_37cxm")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.54855
+shape = SubResource("CapsuleShape2D_hku37")

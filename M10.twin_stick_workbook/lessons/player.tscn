@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbiho2uomfsih"]
+[gd_scene load_steps=10 format=3 uid="uid://cbiho2uomfsih"]
 
 [ext_resource type="Script" path="res://lessons/player.gd" id="1_3aqsf"]
 [ext_resource type="Texture2D" uid="uid://bw03btxpkxde4" path="res://player/godot_bottom.png" id="1_bhxrd"]
@@ -10,6 +10,18 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_obud3"]
 radius = 17.1172
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2snit"]
+bg_color = Color(0, 0.727019, 0.135765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -48,3 +60,12 @@ position = Vector2(76, 20)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_835jl")
 flip_v = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -68.0
+offset_top = -94.0
+offset_right = 69.0
+offset_bottom = -67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2snit")
+max_value = 10.0

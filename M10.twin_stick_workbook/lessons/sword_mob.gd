@@ -4,9 +4,12 @@ class_name Mob extends CharacterBody2D
 @export var acceleration := 850.0
 @export var health := 500: set = set_health
 
+var damage := 10.0
+
 var _player: Player = null
 
 @onready var detection_area: Area2D = %"Detection Area"
+@onready var hitbox: Area2D = $Hitbox
 
 func set_health(new_health: int) -> void:
 	health = new_health
@@ -25,6 +28,11 @@ func _ready() -> void:
 	detection_area.body_exited.connect(func (body: Node) -> void:
 		if body is Player:
 			_player == null
+	)
+	
+	hitbox.body_entered.connect(func (body: Node) -> void:
+		if body is Player:
+			body.health -= damage
 	)
 	
 func _physics_process(delta: float) -> void:
