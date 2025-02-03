@@ -2,8 +2,9 @@ class_name Player extends CharacterBody2D
 
 @export var speed := 600.0 
 @export var drag_factor := 10.0
-@export var max_health := 10.0
+@export var max_health := 11.0
 
+var health := max_health: set = set_health
 
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
