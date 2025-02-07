@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_6qrfx"]
 [ext_resource type="PackedScene" uid="uid://cbiho2uomfsih" path="res://lessons/player.tscn" id="2_0l4ob"]
 [ext_resource type="PackedScene" uid="uid://cy4612dk5fy3p" path="res://lessons/sword_mob.tscn" id="3_ic8wu"]
-[ext_resource type="PackedScene" uid="uid://b8grndf5yuau1" path="res://lessons/pickup.tscn" id="4_7xfnw"]
+[ext_resource type="PackedScene" uid="uid://b8vnlpa1j8bn7" path="res://lessons/pick_up.tscn" id="4_oopse"]
 
 [node name="Room" type="Node2D"]
 
@@ -15,5 +15,5 @@ position = Vector2(1000, 477)
 [node name="Sword Mob" parent="." instance=ExtResource("3_ic8wu")]
 position = Vector2(430, 357)
 
-[node name="Pickup" parent="." instance=ExtResource("4_7xfnw")]
-position = Vector2(852, 654)
+[node name="PickUp" parent="." instance=ExtResource("4_oopse")]
+position = Vector2(966, 322)

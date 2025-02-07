@@ -12,7 +12,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var hand_direction := Vector2.ZERO
 	if gamepad:
 		hand_direction = Input.get_vector("hand_right","hand_left","hand_up","hand_down")

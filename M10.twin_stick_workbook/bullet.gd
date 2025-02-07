@@ -25,5 +25,5 @@ func _ready() -> void:
 			body.health -= damage
 	)
 	
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	_destroy()

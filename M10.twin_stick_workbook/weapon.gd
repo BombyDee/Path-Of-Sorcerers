@@ -21,6 +21,6 @@ func _shoot():
 	bullet.speed = max_speed 
 	bullet.rotation += randf_range(-random_angle / 3.0, random_angle / 3.0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("_shoot"):
 		_shoot()
