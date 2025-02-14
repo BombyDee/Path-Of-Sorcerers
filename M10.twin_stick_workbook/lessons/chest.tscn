@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=3 uid="uid://d1xijku1ichuh"]
+
+[ext_resource type="Texture2D" uid="uid://dub7cda3qxho2" path="res://pickups/chest/chest_bottom.png" id="1_gkp7r"]
+[ext_resource type="Script" path="res://lessons/chest.gd" id="1_o1r6u"]
+[ext_resource type="Texture2D" uid="uid://w4kafn2xajre" path="res://pickups/chest/chest_large_bottom.png" id="2_2i1k4"]
+[ext_resource type="Script" path="res://lessons/Item.gd" id="2_cubsl"]
+[ext_resource type="Texture2D" uid="uid://br78bw4ewb5gl" path="res://pickups/chest/chest_large_top.png" id="3_mjfec"]
+[ext_resource type="AudioStream" uid="uid://o3ra7o263286" path="res://pickups/pickup_health.wav" id="3_vagbj"]
+[ext_resource type="Script" path="res://lessons/HealthItem.gd" id="4_qn56x"]
+[ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="5_e07km"]
+
+[sub_resource type="Resource" id="Resource_2dbx3"]
+script = ExtResource("4_qn56x")
+healing_amount = 1
+display_image = ""
+texture = ExtResource("5_e07km")
+Audio = ExtResource("3_vagbj")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dl6m1"]
+radius = 82.0061
+
+[sub_resource type="Animation" id="Animation_hv0vq"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_6vtk6"]
+resource_name = "Sliding"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(12, -15), Vector2(41, -21), Vector2(75, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_awvfy"]
+_data = {
+"RESET": SubResource("Animation_hv0vq"),
+"Sliding": SubResource("Animation_6vtk6")
+}
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_o1r6u")
+possible_items = Array[ExtResource("2_cubsl")]([SubResource("Resource_2dbx3")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dl6m1")
+
+[node name="Bottom" type="Sprite2D" parent="."]
+texture = ExtResource("1_gkp7r")
+
+[node name="Large Bottom" type="Sprite2D" parent="."]
+texture = ExtResource("2_2i1k4")
+
+[node name="Top" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("3_mjfec")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_awvfy")
+}

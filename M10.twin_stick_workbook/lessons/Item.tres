@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b20segemnqfw4"]
-
-[ext_resource type="Script" path="res://lessons/Item.gd" id="1_qodcy"]
-[ext_resource type="AudioStream" uid="uid://o3ra7o263286" path="res://pickups/pickup_health.wav" id="2_y6jjo"]
-
-[resource]
-script = ExtResource("1_qodcy")
-display_image = ""
-Audio = ExtResource("2_y6jjo")
